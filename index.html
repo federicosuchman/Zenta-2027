@@ -191,4 +191,434 @@
       border-radius: 1rem;
       max-width: 900px;
       width: 100%;
-      padding
+      padding: 2rem;
+      position: relative;
+    }
+    .close-btn { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-icon">Z</div>
+      <div class="brand-title">
+        <span style="font-size: 1.05rem; font-weight: 800; color: #fff;">ZENTA GROUP</span>
+        <span style="color: var(--text-muted); font-weight: 300;">|</span>
+        <span style="font-size: 0.92rem; font-weight: 500; color: #cbd5e1;">Estrategia Corporativa 2027</span>
+      </div>
+    </div>
+
+    <div class="nav-controls">
+      <div class="tab-pills">
+        <button class="tab-pill active" id="pill-1" onclick="showSlide(1)">1. Diagnóstico</button>
+        <button class="tab-pill" id="pill-2" onclick="showSlide(2)">2. EOS vs OKR</button>
+        <button class="tab-pill" id="pill-3" onclick="showSlide(3)">3. Gobernanza</button>
+        <button class="tab-pill" id="pill-4" onclick="showSlide(4)">4. Portafolio</button>
+        <button class="tab-pill" id="pill-5" onclick="showSlide(5)">5. OKRs 2027</button>
+        <button class="tab-pill" id="pill-6" onclick="showSlide(6)" style="color: var(--warning);">6. Budget 2027</button>
+      </div>
+
+      <button class="btn" id="btnPrev" onclick="prevSlide()">← Anterior</button>
+      <button class="btn btn-primary" id="btnNext" onclick="nextSlide()">Siguiente →</button>
+      <button class="btn" onclick="toggleFullScreen()">⛶ Pantalla Completa</button>
+      <button class="btn" style="border-color: var(--warning); color: var(--warning);" onclick="openCfoModal()">🔒 Anexo P&L</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Slide 1: Diagnóstico Organizacional y Gobernanza -->
+    <section class="slide" id="slide-1" style="display: block;">
+      <span class="badge badge-danger">Diagnóstico Organizacional</span>
+      <h1 class="slide-title">Arquitectura Organizacional: Estado Actual y Desafíos de Escala</h1>
+      <p class="slide-subtitle">Diagnóstico sobre los mecanismos de decisión, alineación estratégica y gobernanza en Zenta.</p>
+
+      <div class="grid-4">
+        <div class="card">
+          <span class="badge badge-warning" style="margin-bottom: 0.5rem;">Foros de Decisión</span>
+          <h3>Cadencia Institucional</h3>
+          <p>Inexistencia de reuniones periódicas de Directorio y comités operativos estructurados con agenda predecible.</p>
+          <div class="metric-box">
+            <strong>Seguimiento Fragmentado</strong>
+            <span>La agenda estratégica y operativa se aborda principalmente ante demandas puntuales</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge badge-accent" style="margin-bottom: 0.5rem;">Articulación</span>
+          <h3>Conexión de Iniciativas</h3>
+          <p>Proyectos de alto valor (Catálogo de Servicios, Zenta Growth, automatizaciones) desarrollados en silos funcionales.</p>
+          <div class="metric-box">
+            <strong>Carencia de Hilo Conductor</strong>
+            <span>Dificultad para alinear prioridades de área con las metas estratégicas de la compañía</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Capacidad</span>
+          <h3>Sincronización Operativa</h3>
+          <p>Definición de nuevos roles, alianzas o asesores con mayor velocidad que los procesos de absorción operativa.</p>
+          <div class="metric-box">
+            <strong>Coordinación Cruzada</strong>
+            <span>Necesidad de validación previa en Preventa, Delivery y Finanzas para asegurar tracción</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge badge-success" style="margin-bottom: 0.5rem;">Gobernanza</span>
+          <h3>Autonomía y Datos</h3>
+          <p>Ausencia de métricas compartidas y reglas homogéneas entre áreas y filiales regionales.</p>
+          <div class="metric-box">
+            <strong>Resolución Centralizada</strong>
+            <span>Concentración natural de definiciones en los socios ante la falta de autonomía operativa</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2: EOS vs OKR -->
+    <section class="slide" id="slide-2">
+      <span class="badge badge-primary">Estrategia Metodológica</span>
+      <h1 class="slide-title">EOS vs. OKR: Modelo Híbrido de Gestión</h1>
+      <p class="slide-subtitle">Integración de un sistema operativo estructurado con un motor cuantitativo de alineación estratégica.</p>
+
+      <div class="grid-3">
+        <div class="card" style="border-top: 4px solid var(--accent);">
+          <span class="badge badge-accent">Chasis Operativo</span>
+          <h3>EOS (Operating System)</h3>
+          <p style="margin-bottom: 0.75rem;"><strong>Objetivo:</strong> Estructura y disciplina operativa semanal.</p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.82rem; color: var(--text-muted);">
+            <li>✓ <strong>Accountability Chart:</strong> Roles y responsabilidades unívocos por función.</li>
+            <li>✓ <strong>Reunión Semanal Nivel 10 (L10):</strong> 60 minutos con agenda estricta y resolución mediante proceso IDS.</li>
+            <li>✓ <strong>Scorecard Semanal:</strong> Tablero de métricas operativas directas.</li>
+            <li style="color: var(--danger);">⚠️ <em>Límite metodológico:</em> Metas orientadas a tareas ("Rocks"), sin correlación cruzada entre áreas complejas.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--primary);">
+          <span class="badge badge-primary">Motor de Alineación</span>
+          <h3>OKR (Objectives & Key Results)</h3>
+          <p style="margin-bottom: 0.75rem;"><strong>Objetivo:</strong> Prioridades estratégicas y medición de impacto.</p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.82rem; color: var(--text-muted);">
+            <li>✓ <strong>Metas Interdependientes:</strong> Corresponsabilidad entre Ventas, MKT, Delivery, People y Finanzas.</li>
+            <li>✓ <strong>Medición Cuantitativa:</strong> Resultados Clave matemáticos asociados a rentabilidad y margen.</li>
+            <li>✓ <strong>Foco Corporativo:</strong> Concentración de recursos en pocas prioridades transformacionales.</li>
+            <li style="color: var(--danger);">⚠️ <em>Límite metodológico:</em> Sin una rutina semanal estructurada de resolución de bloqueos, el seguimiento pierde tracción.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--success);">
+          <span class="badge badge-success">Integración en Zenta</span>
+          <h3>El Híbrido de Gestión</h3>
+          <p style="margin-bottom: 0.75rem;"><strong>Objetivo:</strong> Operación predecible con metas compartidas.</p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.82rem; color: #e2e8f0;">
+            <li>💡 <strong>Cadencia y Roles (EOS):</strong> Foros semanales ejecutivos L10 y definición nítida de responsabilidades.</li>
+            <li>💡 <strong>Metas Corporativas (OKR):</strong> 3 grandes prioridades anuales cuantificables orientadas a margen y escala.</li>
+            <li>🚀 <strong>Resultado:</strong> Baja carga burocrática, sincronización interfuncional y gobernanza transparente.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3: Gobernanza -->
+    <section class="slide" id="slide-3">
+      <span class="badge badge-warning">Claridad Institucional</span>
+      <h1 class="slide-title">Dos Mesas de Decisión Inamovibles</h1>
+      <p class="slide-subtitle">Desacoplar la dirección estratégica de largo plazo de la gestión operativa semanal.</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Instancia</th>
+              <th>Participantes</th>
+              <th>Agenda Inamovible</th>
+              <th>Decisiones que Resuelve</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color: var(--primary);">Directorio Mensual</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">90 mins / Mensual</span></td>
+              <td>Socios (Mario, Adolfo, Tomás), Country Managers, CFO</td>
+              <td>• P&L consolidado y política de neteo regional.<br>• Scorecard Corporativo (utilización, MRR Catálogo).<br>• Definiciones estratégicas de nuevas marcas y expansión.</td>
+              <td>• Validación de casos de negocio antes de aperturas.<br>• Reglas de Budget homogéneas entre filiales.<br>• Aprobación de planes de inversión y rentabilidad.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--accent);">Comité Ejecutivo Semanal (L10)</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">60 mins / Semanal</span></td>
+              <td>Ventas, MKT, Preventa, Delivery, Alianzas, People, Finanzas</td>
+              <td>• Revisión del Scorecard semanal.<br>• Estado de OKRs trimestrales.<br>• <strong>Proceso IDS:</strong> Identificación y destrabe de cuellos de botella.</td>
+              <td>• Sincronización de capacidad y reasignación de recursos.<br>• Gestión de perfiles liberables a proyectos internos.<br>• Viabilidad técnica de preventas y compromisos de entrega.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Slide 4: Portafolio & Alianzas -->
+    <section class="slide" id="slide-4">
+      <span class="badge badge-accent">Evolución de Negocio</span>
+      <h1 class="slide-title">Hoja de Ruta: Servicios & Ecosistema 2027</h1>
+      <p class="slide-subtitle">Transición hacia contratos recurrentes de mayor margen y consolidación del modelo multicloud.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>📦 Catálogo de Servicios & Managed Services</h3>
+          <p style="margin-bottom: 0.75rem;">Asegurar que las oportunidades de infraestructura incluyan componentes de servicio recurrente:</p>
+          <div style="background: rgba(0,0,0,0.25); padding: 0.75rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 0.5rem;">
+            <strong>C2 Managed Services:</strong> Servicios gestionados recurrentes (Monitoreo y FinOps).
+          </div>
+          <div style="background: rgba(0,0,0,0.25); padding: 0.75rem; border-radius: 0.5rem; font-size: 0.85rem;">
+            <strong>C5 Soporte Consultivo:</strong> Base contractual recurrente para blindaje de cuentas.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🚀 Modelo TaaS & Zenta Growth</h3>
+          <p style="margin-bottom: 0.75rem;">Articular el programa de carrera profesional con retorno de negocio:</p>
+          <ul style="list-style: none; font-size: 0.85rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.4rem;">
+            <li>✓ Actualización continua de perfiles técnicos en BUZ.</li>
+            <li>✓ Detección proactiva de iniciativas dentro de las cuentas activas.</li>
+            <li>✓ Especialización progresiva de perfiles técnicos hacia soluciones verticales.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>⚡ Alianzas: Optimización de Fondos y Rebates</h3>
+          <p>Mapeo sistemático de cuentas con acuerdos corporativos en Chile y Argentina para estructurar propuestas y asegurar el cobro oportuno de fondos de servicios profesionales (PSF).</p>
+        </div>
+
+        <div class="card">
+          <h3>🌐 Expansión Multicloud Estructurada</h3>
+          <p>Liderazgo regional de alianzas con condiciones operativas previas: certificaciones mínimas requeridas, soporte de Preventa y foco comercial en marcas prioritarias.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5: OKRs 2027 -->
+    <section class="slide" id="slide-5">
+      <span class="badge badge-success">Prioridades Corporativas</span>
+      <h1 class="slide-title">Tríada de OKRs Corporativos 2027</h1>
+      <p class="slide-subtitle">Tres prioridades cuantitativas que alinean la ejecución de todas las áreas hacia la rentabilidad.</p>
+
+      <div class="grid-3">
+        <div class="card" style="border-top: 4px solid var(--primary);">
+          <span class="badge badge-primary">OKR 1: Portafolio & Servicios</span>
+          <h3 style="font-size: 1.05rem;">"Evolución del Portafolio: Hacia Servicios de Mayor Valor Agregado"</h3>
+          <div style="display: flex; flex-direction: column; gap: 0.65rem; margin-top: 1rem; font-size: 0.85rem;">
+            <p><strong>KR 1.1:</strong> Crecimiento del negocio TaaS con adopción plena del modelo Zenta Growth vinculado a detección de oportunidades.</p>
+            <p><strong>KR 1.2:</strong> Penetración de servicios gestionados recurrentes (C2/C5) en el 40% de la base de infraestructura.</p>
+            <p><strong>KR 1.3:</strong> Incorporación de proyectos estratégicos de modernización de infraestructura y nube.</p>
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--accent);">
+          <span class="badge badge-accent">OKR 2: Alianzas & Expansión</span>
+          <h3 style="font-size: 1.05rem;">"Ecosistema Cloud: Consolidación Multicloud y Eficiencia en Fondos"</h3>
+          <div style="display: flex; flex-direction: column; gap: 0.65rem; margin-top: 1rem; font-size: 0.85rem;">
+            <p><strong>KR 2.1:</strong> Formalización como partner en AWS, Azure y OCI con foco prioritario en una nube secundaria.</p>
+            <p><strong>KR 2.2:</strong> Ejecución y cobro del 100% de fondos de servicios profesionales en cuentas corporativas.</p>
+            <p><strong>KR 2.3:</strong> Asignación de fondos de co-marketing orientada a generación de demanda con ratio de pipeline &gt; 3x.</p>
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--success);">
+          <span class="badge badge-success">OKR 3: Eficiencia & Margen</span>
+          <h3 style="font-size: 1.05rem;">"Excelencia Operativa: Rentabilidad y Gestión de Capacidad"</h3>
+          <div style="display: flex; flex-direction: column; gap: 0.65rem; margin-top: 1rem; font-size: 0.85rem;">
+            <p><strong>KR 3.1:</strong> Tasa de utilización &gt; 80% y banca no planificada &lt; 5% con visibilidad predictiva de demanda a 45 días.</p>
+            <p><strong>KR 3.2:</strong> Asignación del 100% de perfiles en banca a proyectos internos priorizados, preventa o certificaciones.</p>
+            <p><strong>KR 3.3:</strong> Optimización de procesos operativos y comerciales mediante herramientas de automatización e IA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6: Temas a Definir / Budget 2027 -->
+    <section class="slide" id="slide-6">
+      <span class="badge badge-warning">Próximos Pasos</span>
+      <h1 class="slide-title">Hoja de Ruta de Definiciones: Budget 2027</h1>
+      <p class="slide-subtitle">Variables que requieren definición de los socios y CFO para consolidar el plan anual.</p>
+
+      <div class="grid-4">
+        <div class="card" style="border-top: 3px solid var(--primary);">
+          <span class="badge badge-primary">Comercial & Portafolio</span>
+          <h3 style="font-size: 1rem;">Definiciones de Negocio</h3>
+          <ul style="list-style: none; font-size: 0.82rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>• Crecimiento proyectado en TaaS vs. año anterior.</li>
+            <li>• Meta de penetración de servicios recurrentes C2/C5.</li>
+            <li>• Cuota de nuevos proyectos de consultoría y migración.</li>
+            <li>• Ratio de renovación en contratos existentes.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent);">
+          <span class="badge badge-accent">Alianzas & Marcas</span>
+          <h3 style="font-size: 1rem;">Cuotas de Ecosistema</h3>
+          <ul style="list-style: none; font-size: 0.82rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>• Monto objetivo a recuperar en fondos de servicios profesionales.</li>
+            <li>• Presupuesto de co-marketing y criterio de neteo local.</li>
+            <li>• Definición de nube secundaria prioritaria para co-sell.</li>
+            <li>• Criterios de continuidad de consultores externos según retorno.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--success);">
+          <span class="badge badge-success">Operaciones & Personas</span>
+          <h3 style="font-size: 1rem;">Capacidad y Staffing</h3>
+          <ul style="list-style: none; font-size: 0.82rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>• Umbral máximo tolerable de banca técnica (&lt; 5%).</li>
+            <li>• Implementación de tablero integrado de capacidad a 45 días.</li>
+            <li>• Despliegue del programa Zenta Growth en recursos técnicos.</li>
+            <li>• Priorización de proyectos internos para asignación de banca.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--warning);">
+          <span class="badge badge-warning">Finanzas & Regional</span>
+          <h3 style="font-size: 1rem;">Criterios de P&L</h3>
+          <ul style="list-style: none; font-size: 0.82rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>• Cuotas de margen directo por país (Chile, Argentina, México).</li>
+            <li>• Modelo de transfer pricing / fee corporativo transparente.</li>
+            <li>• Asignación corporativa de roles de soporte regional.</li>
+            <li>• Estructuración de posiciones operativas en filiales.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.25rem; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 0.65rem; padding: 1rem; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <strong style="color: var(--primary); font-size: 0.95rem;">Compromiso Requerido:</strong>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.15rem;">Coordinar sesión de trabajo con CFO antes del 30 de noviembre para consolidar estos parámetros en el modelo financiero.</p>
+        </div>
+        <button class="btn btn-primary" onclick="openCfoModal()">Ver Criterios Financieros P&L →</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>Zenta Group • Sesión de Gobierno y Estrategia</div>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <span>Atajos: [←] [→] o Barra Espaciadora</span>
+    </div>
+  </footer>
+
+  <!-- Modal Confidencial P&L -->
+  <div class="modal" id="cfoModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeCfoModal()">×</button>
+      <span class="badge badge-warning">Criterios de Gestión • Socios & CFO</span>
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Alineación Financiera Regional</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Criterios directivos para alinear la medición de margen directo y rentabilidad real por filial:</p>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 0.5rem; border-left: 3px solid var(--warning);">
+          <strong style="color: var(--text-main); font-size: 0.95rem;">1. Neteo de Fondos de Co-Marketing:</strong>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">El reintegro cobrado a las marcas asociadas compensa la línea de gasto de marketing del país que ejecuta la actividad, reflejando el costo real de adquisición.</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 0.5rem; border-left: 3px solid var(--primary);">
+          <strong style="color: var(--text-main); font-size: 0.95rem;">2. Criterio de Precios de Transferencia (Transfer Pricing):</strong>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Estructurar la relación inter-compañía mediante un fee corporativo predecible y homogéneo, midiendo a cada filial por su margen directo de contribución.</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 0.5rem; border-left: 3px solid var(--accent);">
+          <strong style="color: var(--text-main); font-size: 0.95rem;">3. Asignación de Costos Regionales:</strong>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Los liderazgos corporativos de alianzas y las inversiones de apertura de nuevas geografías se gestionan a nivel holding o se distribuyen por margen generado, evitando distorsiones sobre la facturación transaccional local.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var currentSlide = 1;
+    var totalSlides = 6;
+
+    function showSlide(n) {
+      var target = parseInt(n, 10);
+      if (isNaN(target)) target = 1;
+      if (target < 1) target = 1;
+      if (target > totalSlides) target = totalSlides;
+      currentSlide = target;
+
+      for (var i = 1; i <= totalSlides; i++) {
+        var s = document.getElementById('slide-' + i);
+        var p = document.getElementById('pill-' + i);
+        if (s) {
+          s.style.display = (i === currentSlide) ? 'block' : 'none';
+        }
+        if (p) {
+          if (i === currentSlide) {
+            p.classList.add('active');
+          } else {
+            p.classList.remove('active');
+          }
+        }
+      }
+
+      var pb = document.getElementById('progressBar');
+      if (pb) {
+        pb.style.width = (currentSlide / totalSlides * 100) + '%';
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    function openCfoModal() {
+      var m = document.getElementById('cfoModal');
+      if (m) m.style.display = 'flex';
+    }
+
+    function closeCfoModal() {
+      var m = document.getElementById('cfoModal');
+      if (m) m.style.display = 'none';
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(function(err) {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    window.addEventListener('keydown', function(e) {
+      var k = e.key;
+      var code = e.keyCode;
+      if (k === 'ArrowRight' || code === 39 || k === ' ' || code === 32) {
+        e.preventDefault();
+        nextSlide();
+      } else if (k === 'ArrowLeft' || code === 37) {
+        e.preventDefault();
+        prevSlide();
+      } else if (k === 'Escape' || code === 27) {
+        closeCfoModal();
+      } else if (code >= 49 && code <= 54) {
+        showSlide(code - 48);
+      }
+    });
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() { showSlide(1); });
+    } else {
+      showSlide(1);
+    }
+  </script>
+</body>
+</html>
