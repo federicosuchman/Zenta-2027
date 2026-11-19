@@ -8,8 +8,8 @@
   <style>
     :root {
       --bg-dark: #0b1120;
-      --card-bg: rgba(30, 41, 59, 0.7);
-      --card-border: rgba(255, 255, 255, 0.08);
+      --card-bg: rgba(30, 41, 59, 0.75);
+      --card-border: rgba(255, 255, 255, 0.1);
       --primary: #38bdf8;
       --accent: #818cf8;
       --success: #34d399;
@@ -33,14 +33,13 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid var(--card-border);
-      background: rgba(11, 17, 32, 0.9);
+      background: rgba(11, 17, 32, 0.95);
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 100;
     }
     .brand { display: flex; align-items: center; gap: 0.85rem; }
-    .brand img { height: 38px; width: auto; object-fit: contain; }
     .brand-title { font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
     .brand-title span {
       background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -69,9 +68,9 @@
       transition: all 0.2s ease;
     }
     .tab-pill:hover { color: var(--text-main); background: rgba(255, 255, 255, 0.1); }
-    .tab-pill.active { background: var(--primary); color: #0b1120; }
+    .tab-pill.active { background: var(--primary) !important; color: #0b1120 !important; font-weight: 700; }
     .btn {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.08);
       color: var(--text-main);
       border: 1px solid var(--card-border);
       padding: 0.5rem 1rem;
@@ -85,9 +84,9 @@
       gap: 0.35rem;
       user-select: none;
     }
-    .btn:hover { background: rgba(255, 255, 255, 0.15); border-color: var(--primary); }
-    .btn:active { transform: scale(0.97); }
-    .btn-primary { background: linear-gradient(135deg, var(--primary), #2563eb); border: none; color: #fff; }
+    .btn:hover { background: rgba(255, 255, 255, 0.18); border-color: var(--primary); }
+    .btn:active { transform: scale(0.96); }
+    .btn-primary { background: linear-gradient(135deg, var(--primary), #2563eb) !important; border: none; color: #fff !important; }
     main {
       flex: 1;
       padding: 2.2rem 2.5rem;
@@ -98,9 +97,9 @@
       flex-direction: column;
       justify-content: center;
     }
-    .slide { display: none !important; }
-    .slide.active { display: block !important; animation: fadeIn 0.3s ease forwards; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .slide {
+      display: none;
+    }
     .badge {
       display: inline-flex;
       align-items: center;
@@ -130,12 +129,12 @@
       backdrop-filter: blur(8px);
       transition: all 0.2s ease;
     }
-    .card:hover { border-color: rgba(255, 255, 255, 0.2); }
+    .card:hover { border-color: rgba(255, 255, 255, 0.25); }
     .card h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: 0.65rem; }
     .card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
     .metric-box {
       background: rgba(15, 23, 42, 0.6);
-      border: 1px dashed rgba(255, 255, 255, 0.12);
+      border: 1px dashed rgba(255, 255, 255, 0.15);
       border-radius: 0.5rem;
       padding: 0.75rem;
       margin-top: 0.85rem;
@@ -162,7 +161,7 @@
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid var(--card-border);
-      background: rgba(11, 17, 32, 0.9);
+      background: rgba(11, 17, 32, 0.95);
       font-size: 0.8rem;
       color: var(--text-muted);
     }
@@ -171,7 +170,7 @@
     .modal {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(8px);
       display: none;
       align-items: center;
@@ -179,10 +178,9 @@
       z-index: 1000;
       padding: 1.5rem;
     }
-    .modal.active { display: flex; }
     .modal-content {
       background: #0f172a;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 1rem;
       max-width: 900px;
       width: 100%;
@@ -205,24 +203,25 @@
 
     <div class="nav-controls">
       <div class="tab-pills">
-        <button class="tab-pill active" data-target="1">1. Diagnóstico</button>
-        <button class="tab-pill" data-target="2">2. EOS vs OKR</button>
-        <button class="tab-pill" data-target="3">3. Gobernanza</button>
-        <button class="tab-pill" data-target="4">4. Portafolio</button>
-        <button class="tab-pill" data-target="5">5. OKRs 2027</button>
-        <button class="tab-pill" data-target="6" style="color: var(--warning);">6. Budget 2027</button>
+        <button class="tab-pill active" id="pill-1" onclick="showSlide(1)">1. Diagnóstico</button>
+        <button class="tab-pill" id="pill-2" onclick="showSlide(2)">2. EOS vs OKR</button>
+        <button class="tab-pill" id="pill-3" onclick="showSlide(3)">3. Gobernanza</button>
+        <button class="tab-pill" id="pill-4" onclick="showSlide(4)">4. Portafolio</button>
+        <button class="tab-pill" id="pill-5" onclick="showSlide(5)">5. OKRs 2027</button>
+        <button class="tab-pill" id="pill-6" onclick="showSlide(6)" style="color: var(--warning);">6. Budget 2027</button>
       </div>
 
-      <button class="btn" id="btnPrev">← Anterior</button>
-      <button class="btn btn-primary" id="btnNext">Siguiente →</button>
-      <button class="btn" id="btnCfo" style="border-color: var(--warning); color: var(--warning);">🔒 Anexo P&L</button>
+      <button class="btn" id="btnPrev" onclick="prevSlide()">← Anterior</button>
+      <button class="btn btn-primary" id="btnNext" onclick="nextSlide()">Siguiente →</button>
+      <button class="btn" onclick="toggleFullScreen()">⛶ Pantalla Completa</button>
+      <button class="btn" style="border-color: var(--warning); color: var(--warning);" onclick="openCfoModal()">🔒 Anexo P&L</button>
     </div>
   </header>
 
   <main>
 
     <!-- Slide 1: Diagnóstico -->
-    <section class="slide active" id="slide-1">
+    <section class="slide" id="slide-1" style="display: block;">
       <span class="badge badge-danger">Diagnóstico de Situación Actual</span>
       <h1 class="slide-title">El Techo Operativo de Zenta (+300 personas)</h1>
       <p class="slide-subtitle">Zenta superó los 300 colaboradores y cuenta con clientes Tier-1, pero la falta de un sistema operativo formal genera fugas de margen y sobrecarga a los fundadores.</p>
@@ -499,7 +498,7 @@
   <!-- Modal Confidencial P&L -->
   <div class="modal" id="cfoModal">
     <div class="modal-content">
-      <button class="close-btn" id="btnCloseCfo">×</button>
+      <button class="close-btn" onclick="closeCfoModal()">×</button>
       <span class="badge badge-warning">Confidencial • Mesa de Socios & CFO</span>
       <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Alineación Financiera Regional (Budget 2027)</h2>
       <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Criterios directivos para eliminar distorsiones de P&L (-120k USD en AR) y medir a cada Country Manager por rentabilidad real:</p>
@@ -512,4 +511,97 @@
 
         <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 0.5rem; border-left: 3px solid var(--primary);">
           <strong style="color: var(--text-main); font-size: 0.95rem;">2. Criterio de Precios de Transferencia (Transfer Pricing):</strong>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Reemplazar la división arbitraria del 50% de margen 
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Reemplazar la división arbitraria del 50% de margen bruto hacia Chile por un <em>Management Fee</em> corporativo fijo y transparente (ej. 5% a 8%). La filial responde por su Margen Directo real.</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 0.5rem; border-left: 3px solid var(--accent);">
+          <strong style="color: var(--text-main); font-size: 0.95rem;">3. Absorción Corporativa de Costos Holding:</strong>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Los liderazgos regionales (como Gianfranco en Alianzas) y el costo de apertura de nuevos países (México) se financian como inversión del Holding o se prorratean por margen generado, no penalizando la facturación bruta transaccional local.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var currentSlide = 1;
+    var totalSlides = 6;
+
+    function showSlide(n) {
+      if (n < 1) n = 1;
+      if (n > totalSlides) n = totalSlides;
+      currentSlide = n;
+
+      for (var i = 1; i <= totalSlides; i++) {
+        var s = document.getElementById('slide-' + i);
+        var p = document.getElementById('pill-' + i);
+        if (s) {
+          s.style.display = (i === currentSlide) ? 'block' : 'none';
+        }
+        if (p) {
+          if (i === currentSlide) {
+            p.classList.add('active');
+          } else {
+            p.classList.remove('active');
+          }
+        }
+      }
+
+      var pb = document.getElementById('progressBar');
+      if (pb) {
+        pb.style.width = (currentSlide / totalSlides * 100) + '%';
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    function openCfoModal() {
+      var m = document.getElementById('cfoModal');
+      if (m) m.style.display = 'flex';
+    }
+
+    function closeCfoModal() {
+      var m = document.getElementById('cfoModal');
+      if (m) m.style.display = 'none';
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(function(err) {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Teclado universal
+    document.addEventListener('keydown', function(e) {
+      var k = e.key || e.keyCode;
+      if (k === 'ArrowRight' || k === 'Right' || k === 39 || k === ' ' || k === 32) {
+        e.preventDefault();
+        nextSlide();
+      } else if (k === 'ArrowLeft' || k === 'Left' || k === 37) {
+        e.preventDefault();
+        prevSlide();
+      } else if (k === 'Escape' || k === 27) {
+        closeCfoModal();
+      } else if (k >= '1' && k <= '6') {
+        showSlide(parseInt(k, 10));
+      }
+    });
+
+    // Inicializar
+    showSlide(1);
+  </script>
+</body>
+</html>
